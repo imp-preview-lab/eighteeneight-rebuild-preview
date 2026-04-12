@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — 18|8 Fine Men's Salons</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    (function(){try{var t=localStorage.getItem('ee-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();
+  </script>
+  <style>
+    :root {
+      --black: #0A0A0A;
+      --black-2: #0D0D0D;
+      --black-3: #141414;
+      --black-4: #1A1A1A;
+      --red: #AA0000;
+      --red-dark: #880000;
+      --silver: #B8BCC2;
+      --silver-dim: #78797F;
+      --white: #FFFFFF;
+      --gray-1: #E5E7EB;
+      --gray-2: #9CA3AF;
+      --gray-3: #6B7280;
+      --silver-rgb: 184, 188, 194;
+      --ultra: #050505;
+    }
+    [data-theme="light"] {
+      --black: #F5F6F8;
+      --black-2: #EDEFF3;
+      --black-3: #E3E6EC;
+      --black-4: #D7DBE1;
+      --silver: #4A5158;
+      --silver-dim: #6B7280;
+      --white: #0E1114;
+      --gray-1: #2A2E33;
+      --gray-2: #556070;
+      --gray-3: #7B8592;
+      --silver-rgb: 74, 81, 88;
+      --ultra: #E8EAEE;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--gray-1);
+      font-family: 'Open Sans', -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    .container { max-width: 1440px; margin: 0 auto; padding: 0 40px; position: relative; }
+    .narrow { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+
+    /* Utility */
+    .utility {
+      background: var(--ultra);
+      border-bottom: 1px solid rgba(var(--silver-rgb), 0.12);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gray-2);
+    }
+    .utility .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .utility a { color: var(--gray-2); text-decoration: none; transition: color .2s; }
+    .utility a:hover { color: var(--silver); }
+    .utility-right { display: flex; gap: 28px; }
+    .utility .silver { color: var(--silver); }
+
+    /* Header */
+    header {
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(var(--silver-rgb), 0.1);
+    }
+    [data-theme="light"] header {
+      background: rgba(245, 246, 248, 0.88);
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 22px;
+      padding-bottom: 22px;
+    }
+    .logo {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: 30px;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      text-transform: uppercase;
+    }
+    .logo .pipe { color: var(--red); font-weight: 300; margin: 0 2px; }
+    .logo small {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.24em;
+      color: var(--silver);
+      margin-left: 16px;
+      border-left: 1px solid rgba(var(--silver-rgb), 0.3);
+      padding-left: 16px;
+      align-self: center;
+      text-transform: uppercase;
+    }
+    nav ul { list-style: none; display: flex; gap: 44px; align-items: center; }
+    nav a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-1);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color .2s;
+    }
+    nav a:hover, nav a.active { color: var(--silver); }
+    .btn-book-header {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--red);
+      padding: 14px 28px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background .2s;
+    }
+    .btn-book-header:hover { background: var(--red-dark); }
+
+    /* Page hero */
+    .page-hero {
+      position: relative;
+      padding: 140px 0 120px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(170, 0, 0, 0.18), transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(var(--silver-rgb), 0.06), transparent 45%),
+        linear-gradient(180deg, var(--black) 0%, var(--black-3) 100%);
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .page-hero .container { position: relative; z-index: 2; }
+
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 44px;
+    }
+    .hero-kicker::before {
+      content: '';
+      width: 60px;
+      height: 2px;
+      background: var(--red);
+    }
+    .hero-kicker span {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver);
+      font-weight: 500;
+    }
+    .page-hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: clamp(56px, 9vw, 140px);
+      line-height: 0.9;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 44px;
+      letter-spacing: -0.005em;
+      max-width: 900px;
+    }
+    .page-hero h1 em {
+      color: var(--red);
+      font-style: normal;
+      font-weight: 400;
+    }
+    .page-hero .sub {
+      font-size: 20px;
+      line-height: 1.65;
+      color: var(--gray-2);
+      max-width: 640px;
+      font-weight: 300;
+    }
+
+    /* Sections */
+    section.about {
+      padding: 140px 0;
+      border-top: 1px solid rgba(var(--silver-rgb), 0.08);
+    }
+    section.about.alt { background: var(--black-2); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 100px;
+      align-items: start;
+    }
+    .sec-kicker {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--silver);
+      font-weight: 600;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .sec-kicker::before {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--silver);
+    }
+    .sec-kicker.red { color: var(--red); }
+    .sec-kicker.red::before { background: var(--red); }
+
+    section.about h2 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: clamp(44px, 5.5vw, 84px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--white);
+      letter-spacing: -0.005em;
+    }
+    section.about h2 em {
+      color: var(--red);
+      font-style: normal;
+      font-weight: 400;
+    }
+    .about-body p {
+      font-size: 17px;
+      line-height: 1.85;
+      color: var(--gray-1);
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-body .lead {
+      font-family: 'Oswald', sans-serif;
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--white);
+      margin-bottom: 36px;
+      padding-left: 28px;
+      border-left: 3px solid var(--red);
+    }
+    .about-body strong { color: var(--white); font-weight: 500; }
+
+    /* Formula strip */
+    .formula-strip {
+      padding: 80px 0;
+      background: var(--black-3);
+      border-top: 1px solid rgba(var(--silver-rgb), 0.12);
+      border-bottom: 1px solid rgba(var(--silver-rgb), 0.12);
+    }
+    .formula-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+    .formula-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .f-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 64px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .f-num .f-pct {
+      font-size: 28px;
+      color: var(--silver);
+      vertical-align: super;
+      margin-left: 2px;
+    }
+    .f-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--silver);
+      font-weight: 600;
+    }
+    .formula-sym {
+      font-family: 'Oswald', sans-serif;
+      font-size: 44px;
+      font-weight: 300;
+      color: var(--red);
+      line-height: 1;
+    }
+
+    /* Values cards */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 70px;
+    }
+    .value-card {
+      padding: 44px 36px;
+      background: var(--black-3);
+      border: 1px solid rgba(var(--silver-rgb), 0.15);
+      transition: border-color .3s, transform .3s;
+    }
+    .value-card:hover {
+      border-color: rgba(var(--silver-rgb), 0.35);
+      transform: translateY(-6px);
+    }
+    .value-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--red);
+      margin-bottom: 18px;
+      line-height: 1;
+    }
+    .value-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: var(--white);
+      letter-spacing: 0.015em;
+      margin-bottom: 14px;
+    }
+    .value-card p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--gray-2);
+      font-weight: 300;
+    }
+
+    /* Stats strip */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 52px 0;
+      border-top: 1px solid rgba(var(--silver-rgb), 0.15);
+      border-bottom: 1px solid rgba(var(--silver-rgb), 0.15);
+      margin-top: 80px;
+    }
+    .stat { text-align: center; }
+    .stat strong {
+      font-family: 'Oswald', sans-serif;
+      font-size: 56px;
+      font-weight: 400;
+      color: var(--white);
+      display: block;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .stat strong em { color: var(--red); font-style: normal; }
+    .stat span {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--silver);
+      font-weight: 500;
+    }
+
+    /* Closer */
+    .closer-section {
+      padding: 160px 0;
+      text-align: center;
+      background: var(--black);
+      border-top: 1px solid rgba(var(--silver-rgb), 0.08);
+    }
+    .closer-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: clamp(56px, 8vw, 128px);
+      line-height: 0.9;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 36px;
+    }
+    .closer-section h2 em {
+      color: var(--red);
+      font-style: normal;
+      font-weight: 400;
+    }
+    .closer-section p {
+      font-size: 20px;
+      color: var(--gray-2);
+      margin-bottom: 56px;
+      font-weight: 300;
+    }
+    .btn-primary {
+      font-family: 'Oswald', sans-serif;
+      background: var(--red);
+      color: var(--white);
+      padding: 22px 44px;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      border: 2px solid var(--red);
+    }
+    .btn-primary:hover { background: transparent; color: var(--red); }
+    .btn-primary svg { width: 18px; height: 18px; }
+
+    /* Footer */
+    footer {
+      background: var(--ultra);
+      padding: 100px 0 40px;
+      border-top: 1px solid rgba(var(--silver-rgb), 0.15);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 80px;
+    }
+    .footer-brand .logo { font-size: 38px; margin-bottom: 28px; }
+    .footer-brand p {
+      font-size: 15px;
+      color: var(--gray-2);
+      max-width: 360px;
+      line-height: 1.7;
+    }
+    .footer-col h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--silver);
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 14px; }
+    .footer-col a {
+      font-family: 'Oswald', sans-serif;
+      color: var(--gray-1);
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--red); }
+    .footer-bottom {
+      border-top: 1px solid rgba(var(--silver-rgb), 0.12);
+      padding-top: 36px;
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+    }
+
+    /* Theme toggle */
+    .palette-toggle {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: rgba(var(--silver-rgb), 0.04);
+      backdrop-filter: blur(14px) saturate(120%);
+      -webkit-backdrop-filter: blur(14px) saturate(120%);
+      border: 1px solid rgba(var(--silver-rgb), 0.3);
+      padding: 0;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      z-index: 1000;
+      font-weight: 500;
+      font-family: 'Oswald', sans-serif;
+      display: flex;
+      align-items: stretch;
+      box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.5);
+    }
+    [data-theme="light"] .palette-toggle {
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 20px 50px -20px rgba(14, 17, 20, 0.2);
+    }
+    .palette-toggle .label {
+      color: var(--gray-2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 18px 16px 22px;
+      border-right: 1px solid rgba(var(--silver-rgb), 0.2);
+    }
+    .palette-toggle .label::before { content: '\u25C6'; color: var(--silver); }
+    .theme-btn {
+      appearance: none; background: transparent; border: 0;
+      color: var(--white); font: inherit;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      padding: 16px 22px; font-weight: 600;
+      cursor: pointer; display: flex; align-items: center; gap: 10px;
+      transition: color .2s;
+    }
+    .theme-btn:hover { color: var(--silver); }
+    .theme-btn svg { width: 14px; height: 14px; display: block; }
+    [data-theme="light"] .theme-btn .t-dark { display: none; }
+    .theme-btn .t-light { display: none; }
+    [data-theme="light"] .theme-btn .t-light { display: inline-flex; align-items: center; gap: 10px; }
+    .theme-btn .t-dark { display: inline-flex; align-items: center; gap: 10px; }
+
+    @media (max-width: 900px) {
+      .container, .narrow { padding: 0 24px; }
+      .page-hero { padding: 80px 0 60px; }
+      .about-grid { grid-template-columns: 1fr; gap: 50px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .stats-strip { grid-template-columns: 1fr 1fr; }
+      .formula-row { gap: 20px; }
+      .f-num { font-size: 44px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      nav ul { display: none; }
+      .utility .container { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="utility">
+    <div class="container">
+      <div><span class="silver">\u25C6</span>&nbsp;&nbsp;22 LOCATIONS \u00B7 14 STATES \u00B7 EST. 2008</div>
+      <div class="utility-right">
+        <a href="locations.html">Find A Salon</a>
+        <a href="#">Gift Cards</a>
+        <a href="#" class="silver">(800) 188-GROOM</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <a href="direction-b-luxe.html" class="logo">
+        18<span class="pipe">|</span>8
+        <small>Fine Men's Salons</small>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="direction-b-luxe.html#services">Services</a></li>
+          <li><a href="direction-b-luxe.html#signature">The Executive</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="#" class="btn-book-header">Book Now \u2192</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero-kicker"><span>About 18|8</span></div>
+      <h1>The Barbershop<br>Reinvented For<br><em>Modern Men.</em></h1>
+      <p class="sub">Eighteen percent chromium. Eight percent nickel. That exact ratio is what turns ordinary steel into stainless. It's also the science behind our name \u2014 and our promise.</p>
+    </div>
+  </section>
+
+  <div class="formula-strip">
+    <div class="container">
+      <div class="formula-row">
+        <div class="formula-item">
+          <span class="f-num">18<span class="f-pct">%</span></span>
+          <span class="f-label">Chromium</span>
+        </div>
+        <div class="formula-sym">+</div>
+        <div class="formula-item">
+          <span class="f-num">8<span class="f-pct">%</span></span>
+          <span class="f-label">Nickel</span>
+        </div>
+        <div class="formula-sym">=</div>
+        <div class="formula-item">
+          <span class="f-num">SS</span>
+          <span class="f-label">Stainless Steel</span>
+        </div>
+        <div class="formula-sym">=</div>
+        <div class="formula-item">
+          <span class="f-num">18<span class="f-pct">|</span>8</span>
+          <span class="f-label">Transformation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="about" id="story">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <div class="sec-kicker">Chapter One</div>
+          <h2>The<br><em>Standard.</em></h2>
+        </div>
+        <div class="about-body">
+          <p class="lead">It's the standard behind the instruments that demand the most: surgical tools, precision hardware, the kind of equipment where failure isn't an option.</p>
+          <p>At 18|8, that same transformation applies to you: <strong>look better, feel better, perform better.</strong></p>
+          <p>Since 2008, we've dedicated ourselves to reinventing the barbershop for the modern man. Because we believe a man's week goes better when there's an hour inside it that's just his. Not a fifteen-minute clipper job between errands. A real sit-down in a semi-private station \u2014 a conversation, a pour of something from the bar, a precision cut by someone who actually listens, a straight-razor shave, a hot towel, and a handshake on the way out.</p>
+          <p>It's the transformation the name promises. The kind that doesn't rust, doesn't dull, and doesn't rush.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about alt" id="experience">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <div class="sec-kicker red">Chapter Two</div>
+          <h2>The<br><em>Experience.</em></h2>
+        </div>
+        <div class="about-body">
+          <p class="lead">Other shops rush you in and out. We pour you a drink, turn the chair back, and take our time.</p>
+          <p>Every 18|8 salon is built around a simple idea: grooming should be something men look forward to, not something they tolerate. Our salons feature semi-private stations, curated atmospheres, and a bar. Our stylists are trained to ask, listen, and deliver \u2014 not just cut.</p>
+          <p>Whether it's a precision cut, a straight-razor shave, a coloring blend, or our signature Executive package, every service is delivered with the same standard: <strong>unhurried, considered, yours.</strong></p>
+        </div>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-num">01</div>
+          <h3>Precision</h3>
+          <p>Scissors-over-comb, clipper work, straight-razor edges \u2014 every cut tailored to the man in the chair, not the one before him.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">02</div>
+          <h3>Atmosphere</h3>
+          <p>Semi-private stations, curated music, warm light, and a pour from the bar. Built for men who want to decompress, not just get clipped.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">03</div>
+          <h3>Relationship</h3>
+          <p>Your stylist knows your name, remembers your last cut, and understands what Thursday's meeting needs. That's not a transaction \u2014 that's a standing appointment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="network">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <div class="sec-kicker">Chapter Three</div>
+          <h2>The<br><em>Network.</em></h2>
+        </div>
+        <div class="about-body">
+          <p class="lead">22 independently owned salons across 14 states. One standard.</p>
+          <p>Every 18|8 salon is owned and operated by someone who chose this brand because it represents something worth delivering. Each location brings its own personality \u2014 its own team, its own neighborhood energy, its own additions to the house menu \u2014 but every chair in the network shares the same commitment to precision, atmosphere, and the unhurried sit-down men come back for.</p>
+          <p>From Dallas to Palo Alto, Palm Beach Gardens to Redmond, the 18|8 standard holds. <strong>Walk into any location and know what you're getting: the seat you've been missing.</strong></p>
+        </div>
+      </div>
+
+      <div class="stats-strip">
+        <div class="stat"><strong>22<em>.</em></strong><span>Locations</span></div>
+        <div class="stat"><strong>14<em>.</em></strong><span>States</span></div>
+        <div class="stat"><strong>17<em>.</em></strong><span>Years In Practice</span></div>
+        <div class="stat"><strong>4.9<em>\u2605</em></strong><span>Google Rated</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closer-section">
+    <div class="container">
+      <h2>You're<br><em>The Man.</em></h2>
+      <p>Find a chair near you and sit down.</p>
+      <a href="locations.html" class="btn-primary">
+        Find Your Salon
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9h14M10 3l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="direction-b-luxe.html" class="logo">
+            18<span class="pipe">|</span>8
+            <small>Fine Men's Salons</small>
+          </a>
+          <p>A classic barbershop reinvented for the modern man. Precision grooming across 14 states.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="direction-b-luxe.html#services">Haircuts</a></li>
+            <li><a href="direction-b-luxe.html#services">Shaves</a></li>
+            <li><a href="direction-b-luxe.html#services">Coloring</a></li>
+            <li><a href="direction-b-luxe.html#services">Facials</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#">Gift Cards</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">(800) 188-GROOM</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>\u00A9 2026 18|8 Fine Men's Salons</div>
+        <div>Draft \u2014 About Page</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="palette-toggle" role="group" aria-label="Theme toggle">
+    <span class="label">Theme</span>
+    <button type="button" class="theme-btn" onclick="toggleTheme()" aria-label="Toggle light or dark theme">
+      <span class="t-dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        Switch to Light
+      </span>
+      <span class="t-light">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        Switch to Dark
+      </span>
+    </button>
+  </div>
+
+  <script>
+    function toggleTheme(){
+      var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      var next = cur === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('ee-theme', next); } catch(e) {}
+    }
+  </script>
+
+</body>
+</html>
