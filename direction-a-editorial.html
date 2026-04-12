@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18|8 Fine Men's Salons — Direction A: Warm Editorial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bone: #F6F1E7;
+      --bone-2: #EEE7D7;
+      --bone-3: #E5DCC7;
+      --espresso: #1F1A15;
+      --espresso-2: #2D2620;
+      --cognac: #B5651D;
+      --cognac-dark: #6B2E1F;
+      --muted: #736960;
+      --rule: #D9CEB6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bone);
+      color: var(--espresso);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Subtle paper grain */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background-image:
+        radial-gradient(ellipse at top, rgba(181, 101, 29, 0.03), transparent 60%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='2' seed='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Utility strip */
+    .utility {
+      border-bottom: 1px solid var(--rule);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      position: relative;
+      z-index: 10;
+    }
+    .utility .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+    .utility a { color: var(--muted); text-decoration: none; transition: color .2s; }
+    .utility a:hover { color: var(--cognac); }
+    .utility-right { display: flex; gap: 32px; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--rule);
+      position: sticky;
+      top: 0;
+      background: rgba(246, 241, 231, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 26px;
+      padding-bottom: 26px;
+    }
+    .logo {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+      color: var(--espresso);
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+    .logo .pipe {
+      color: var(--cognac);
+      font-weight: 300;
+      margin: 0 1px;
+    }
+    .logo small {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-left: 14px;
+      border-left: 1px solid var(--rule);
+      padding-left: 14px;
+      align-self: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 44px;
+      align-items: center;
+    }
+    nav a {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--espresso);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--cognac); }
+    .btn-book {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bone);
+      background: var(--espresso);
+      padding: 14px 28px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background .2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-book:hover { background: var(--cognac); }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0 120px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 80px;
+      align-items: end;
+    }
+    .kicker {
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--cognac);
+      font-weight: 600;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .kicker::before {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--cognac);
+    }
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(64px, 10vw, 148px);
+      line-height: 0.88;
+      letter-spacing: -0.035em;
+      color: var(--espresso);
+      font-optical-sizing: auto;
+      margin-bottom: 40px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--cognac);
+    }
+    .hero .lede {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      line-height: 1.45;
+      font-weight: 300;
+      max-width: 520px;
+      color: var(--espresso-2);
+      margin-bottom: 48px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    .btn-primary {
+      background: var(--espresso);
+      color: var(--bone);
+      padding: 20px 40px;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-primary:hover { background: var(--cognac); }
+    .btn-primary svg { width: 16px; height: 16px; }
+    .btn-ghost {
+      color: var(--espresso);
+      padding: 20px 0;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid var(--espresso);
+      transition: color .2s, border-color .2s;
+    }
+    .btn-ghost:hover { color: var(--cognac); border-color: var(--cognac); }
+
+    /* Hero editorial card */
+    .hero-aside {
+      background: linear-gradient(160deg, #3a2d22 0%, #1f1a15 60%, #6b2e1f 140%);
+      aspect-ratio: 3 / 4;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 80px -30px rgba(31, 26, 21, 0.3);
+    }
+    .hero-aside::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 30% 40%, rgba(181, 101, 29, 0.18), transparent 50%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n2'%3E%3CfeTurbulence baseFrequency='0.75' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.7 0 0 0 0 0.4 0 0 0 0 0.12 0 0 0 0.1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");
+    }
+    .hero-aside-content {
+      position: absolute;
+      inset: 0;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: var(--bone);
+    }
+    .aside-label {
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #C9A96E;
+      font-weight: 600;
+    }
+    .aside-caption {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 28px;
+      line-height: 1.2;
+      color: var(--bone);
+    }
+    .aside-caption cite {
+      display: block;
+      font-style: normal;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C9A96E;
+      margin-top: 20px;
+      font-weight: 500;
+    }
+
+    /* Chapter divider strip */
+    .chapter {
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 40px 0;
+      background: var(--bone-2);
+    }
+    .chapter .container {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .chapter-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .chapter-item strong {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: 32px;
+      color: var(--espresso);
+      line-height: 1;
+    }
+    .chapter-item span {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .chapter-sep {
+      width: 1px;
+      height: 48px;
+      background: var(--rule);
+    }
+
+    /* The House Menu (services) */
+    .menu-section {
+      padding: 140px 0;
+    }
+    .menu-header {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 80px;
+      margin-bottom: 100px;
+      align-items: end;
+    }
+    .menu-header h2 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(52px, 6vw, 88px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+    .menu-header h2 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--cognac);
+    }
+    .menu-header p {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      line-height: 1.5;
+      font-weight: 300;
+      color: var(--espresso-2);
+      max-width: 480px;
+    }
+    .menu-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 100px;
+    }
+    .menu-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      gap: 24px;
+      align-items: baseline;
+      padding: 32px 0;
+      border-top: 1px solid var(--rule);
+      transition: padding .3s;
+      cursor: pointer;
+    }
+    .menu-item:last-child { border-bottom: 1px solid var(--rule); }
+    .menu-item:hover { padding-left: 12px; }
+    .menu-item:hover .menu-name { color: var(--cognac); }
+    .menu-num {
+      font-family: 'Fraunces', serif;
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 400;
+      font-style: italic;
+    }
+    .menu-name {
+      font-family: 'Fraunces', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--espresso);
+      transition: color .3s;
+    }
+    .menu-dots {
+      border-bottom: 1px dotted var(--rule);
+      height: 1px;
+      position: relative;
+      top: -8px;
+    }
+    .menu-time {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .menu-price {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--espresso);
+      min-width: 80px;
+      text-align: right;
+    }
+
+    .menu-footnote {
+      margin-top: 60px;
+      padding: 32px 40px;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      background: var(--bone-2);
+    }
+    .menu-footnote .mark {
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--cognac);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .menu-footnote .mark::before { content: '◆'; font-size: 12px; }
+    .menu-footnote p {
+      font-family: 'Fraunces', serif;
+      font-size: 17px;
+      line-height: 1.5;
+      font-weight: 300;
+      color: var(--espresso-2);
+      margin: 0;
+      font-style: italic;
+      flex: 1;
+    }
+    .menu-footnote a {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cognac);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid var(--cognac);
+      padding-bottom: 2px;
+      white-space: nowrap;
+      transition: color .2s, border-color .2s;
+    }
+    .menu-footnote a:hover {
+      color: var(--cognac-dark);
+      border-color: var(--cognac-dark);
+    }
+
+    /* Signature section */
+    .signature {
+      background: var(--espresso);
+      color: var(--bone);
+      padding: 160px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .signature::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(181, 101, 29, 0.25), transparent 55%),
+        radial-gradient(ellipse at 90% 20%, rgba(201, 169, 110, 0.08), transparent 50%);
+    }
+    .signature .container { position: relative; z-index: 2; }
+    .sig-kicker {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #C9A96E;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+    .signature h2 {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: clamp(72px, 11vw, 180px);
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      margin-bottom: 60px;
+    }
+    .signature h2 em {
+      font-style: italic;
+      color: #C9A96E;
+    }
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 80px;
+    }
+    .sig-grid p {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      line-height: 1.5;
+      font-weight: 300;
+      color: var(--bone);
+    }
+    .sig-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .sig-step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+    }
+    .sig-step-num {
+      font-family: 'Fraunces', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: #C9A96E;
+    }
+    .sig-step strong {
+      font-family: 'Fraunces', serif;
+      font-size: 18px;
+      font-weight: 400;
+      display: block;
+      color: var(--bone);
+      margin-bottom: 4px;
+    }
+    .sig-step span {
+      font-size: 13px;
+      color: rgba(246, 241, 231, 0.7);
+      line-height: 1.5;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      padding: 180px 0;
+      text-align: center;
+      background: var(--bone-2);
+      border-top: 1px solid var(--rule);
+    }
+    .final-cta h2 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(56px, 8vw, 120px);
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      margin-bottom: 50px;
+    }
+    .final-cta h2 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--cognac);
+    }
+    .final-cta p {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 56px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--espresso);
+      color: var(--bone);
+      padding: 100px 0 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 80px;
+    }
+    .footer-brand h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 40px;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .footer-brand h3 em { font-style: italic; color: #C9A96E; }
+    .footer-brand p {
+      font-family: 'Fraunces', serif;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: rgba(246, 241, 231, 0.6);
+      max-width: 320px;
+    }
+    .footer-col h4 {
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #C9A96E;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a {
+      color: rgba(246, 241, 231, 0.8);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color .2s;
+    }
+    .footer-col a:hover { color: #C9A96E; }
+    .footer-bottom {
+      border-top: 1px solid rgba(246, 241, 231, 0.12);
+      padding-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(246, 241, 231, 0.4);
+    }
+
+    /* Alternate palette toggle */
+    .palette-toggle {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: rgba(246, 241, 231, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--rule);
+      padding: 16px 22px;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      z-index: 1000;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 20px 50px -20px rgba(31, 26, 21, 0.3);
+    }
+    .palette-toggle .label {
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .palette-toggle .label::before {
+      content: '◆';
+      color: var(--cognac);
+    }
+    .palette-toggle a {
+      color: var(--espresso);
+      text-decoration: none;
+      border-left: 1px solid var(--rule);
+      padding-left: 14px;
+      transition: color .2s;
+      font-weight: 600;
+    }
+    .palette-toggle a:hover { color: var(--cognac); }
+
+    @media (max-width: 900px) {
+      .container { padding: 0 24px; }
+      .hero { padding: 60px 0 80px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 60px; }
+      .hero-aside { aspect-ratio: 4/5; }
+      .menu-header { grid-template-columns: 1fr; gap: 32px; }
+      .menu-list { grid-template-columns: 1fr; gap: 0; }
+      .chapter .container { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .chapter-sep { display: none; }
+      .sig-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      nav ul { display: none; }
+      .utility .container { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="utility">
+    <div class="container">
+      <div>OPEN SEVEN DAYS · EST. 2008</div>
+      <div class="utility-right">
+        <a href="#">22 Locations</a>
+        <a href="#">Gift Cards</a>
+        <a href="#">(800) 188-GROOM</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <a href="#" class="logo">
+        18<span class="pipe">|</span>8
+        <small>Fine Men's Salons</small>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#menu">The Menu</a></li>
+          <li><a href="#signature">Experience</a></li>
+          <li><a href="#">Locations</a></li>
+          <li><a href="#">Journal</a></li>
+          <li><a href="#" class="btn-book">Reserve</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">A Men's Salon, Considered Since 2008</div>
+          <h1>Grooming,<br><em>considered.</em></h1>
+          <p class="lede">A classic sit-down for the modern gentleman. Precision cut, hot-towel shave, and thirty minutes of sanctuary.</p>
+          <div class="hero-ctas">
+            <a href="#" class="btn-primary">
+              Find Your Chair
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 8h14M9 2l6 6-6 6"/></svg>
+            </a>
+            <a href="#menu" class="btn-ghost">See The Menu</a>
+          </div>
+        </div>
+        <div class="hero-aside">
+          <div class="hero-aside-content">
+            <div class="aside-label">No. 001 · The House Philosophy</div>
+            <div class="aside-caption">
+              "The Barbershop Reinvented For Modern Men."
+              <cite>— The 18|8 Credo</cite>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="container">
+      <div class="chapter-item">
+        <strong>22</strong>
+        <span>Locations</span>
+      </div>
+      <div class="chapter-sep"></div>
+      <div class="chapter-item">
+        <strong>14</strong>
+        <span>States Served</span>
+      </div>
+      <div class="chapter-sep"></div>
+      <div class="chapter-item">
+        <strong>17</strong>
+        <span>Years In Practice</span>
+      </div>
+      <div class="chapter-sep"></div>
+      <div class="chapter-item">
+        <strong>7</strong>
+        <span>Days A Week</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="menu-header">
+        <h2>The House<br><em>Menu.</em></h2>
+        <p>Eight services, refined across seventeen years. Each performed sit-down style, unhurried, by a master stylist who actually asks what you want.</p>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item">
+          <span class="menu-num">i.</span>
+          <span class="menu-name">The Classic Cut</span>
+          <span class="menu-dots"></span>
+          <span class="menu-time">45 min</span>
+          <span class="menu-price">from $45</span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-num">ii.</span>
+          <span class="menu-name">The Straight-Razor Shave</span>
+          <span class="menu-dots"></span>
+          <span class="menu-time">40 min</span>
+          <span class="menu-price">from $40</span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-num">iii.</span>
+          <span class="menu-name">Hair Coloring &amp; Blending</span>
+          <span class="menu-dots"></span>
+          <span class="menu-time">60 min</span>
+          <span class="menu-price">from $65</span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-num">iv.</span>
+          <span class="menu-name">The Signature Facial</span>
+          <span class="menu-dots"></span>
+          <span class="menu-time">45 min</span>
+          <span class="menu-price">from $55</span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-num">v.</span>
+          <span class="menu-name">Scalp Therapy Treatment</span>
+          <span class="menu-dots"></span>
+          <span class="menu-time">30 min</span>
+          <span class="menu-price">from $35</span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-num">vi.</span>
+          <span class="menu-name">Facial Hair Sculpting</span>
+          <span class="menu-dots"></span>
+          <span class="menu-time">20 min</span>
+          <span class="menu-price">from $25</span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-num">vii.</span>
+          <span class="menu-name">Men's Waxing</span>
+          <span class="menu-dots"></span>
+          <span class="menu-time">15 min</span>
+          <span class="menu-price">from $20</span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-num">viii.</span>
+          <span class="menu-name">The Bachelor Package</span>
+          <span class="menu-dots"></span>
+          <span class="menu-time">90 min</span>
+          <span class="menu-price">from $145</span>
+        </div>
+      </div>
+
+      <div class="menu-footnote">
+        <span class="mark">House Menu</span>
+        <p>Every 18|8 serves the eight above. Select salons pour a little extra — scalp tattooing, massage, hair systems, more. Ask your local house.</p>
+        <a href="#locations">Find My Salon →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="signature" id="signature">
+    <div class="container">
+      <div class="sig-kicker">The Signature Experience</div>
+      <h2>The 18|8<br><em>Sit-Down.</em></h2>
+      <div class="sig-grid">
+        <p>Ninety minutes. One chair. One master stylist. The full arc of the house menu in the order it was meant to be enjoyed — and a pour of something from the bar to close it out. The way grooming used to feel, before it became a transaction.</p>
+        <div class="sig-steps">
+          <div class="sig-step">
+            <span class="sig-step-num">i.</span>
+            <div>
+              <strong>Consult &amp; Pour</strong>
+              <span>A conversation, a coffee or bourbon, and a plan.</span>
+            </div>
+          </div>
+          <div class="sig-step">
+            <span class="sig-step-num">ii.</span>
+            <div>
+              <strong>The Cut</strong>
+              <span>Scissors-over-comb, clippers where they belong.</span>
+            </div>
+          </div>
+          <div class="sig-step">
+            <span class="sig-step-num">iii.</span>
+            <div>
+              <strong>Hot-Towel Shave</strong>
+              <span>Straight razor, warm lather, cold finish.</span>
+            </div>
+          </div>
+          <div class="sig-step">
+            <span class="sig-step-num">iv.</span>
+            <div>
+              <strong>Scalp &amp; Facial</strong>
+              <span>Treatment, massage, and you somehow fall asleep.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <h2>Your chair is <em>waiting.</em></h2>
+      <p>22 locations across 14 states. Book in under a minute.</p>
+      <a href="#" class="btn-primary">
+        Reserve Your Sit-Down
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 8h14M9 2l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>18<em>|</em>8<br>Fine Men's Salons</h3>
+          <p>A classic sit-down for the modern gentleman. Considered grooming since 2008.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Experience</h4>
+          <ul>
+            <li><a href="#">The Menu</a></li>
+            <li><a href="#">The Sit-Down</a></li>
+            <li><a href="#">Memberships</a></li>
+            <li><a href="#">Gift Cards</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>The House</h4>
+          <ul>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">Journal</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Partnerships</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Reach Us</h4>
+          <ul>
+            <li><a href="#">(800) 188-GROOM</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 18|8 Fine Men's Salons</div>
+        <div>Draft — Direction A · Warm Editorial</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="palette-toggle">
+    <span class="label">Alt Palette</span>
+    <a href="direction-b-luxe.html">← Back to Dark Luxe</a>
+  </div>
+
+</body>
+</html>

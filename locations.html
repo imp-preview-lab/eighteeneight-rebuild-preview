@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find A Salon — 18|8 Fine Men's Salons</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    (function(){try{var t=localStorage.getItem('ee-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();
+  </script>
+  <style>
+    :root {
+      --black: #0A0A0A;
+      --black-2: #0D0D0D;
+      --black-3: #141414;
+      --black-4: #1A1A1A;
+      --black-5: #212934;
+      --red: #AA0000;
+      --red-dark: #880000;
+      --gold: #B8BCC2;
+      --gold-dim: #78797F;
+      --white: #FFFFFF;
+      --gray-1: #E5E7EB;
+      --gray-2: #9CA3AF;
+      --gray-3: #6B7280;
+      --silver-rgb: 184, 188, 194;
+      --ultra: var(--ultra);
+    }
+    [data-theme="light"] {
+      --black: #F5F6F8;
+      --black-2: #EDEFF3;
+      --black-3: #E3E6EC;
+      --black-4: #D7DBE1;
+      --black-5: #C2C8D0;
+      --gold: #4A5158;
+      --gold-dim: #6B7280;
+      --white: #0E1114;
+      --gray-1: #2A2E33;
+      --gray-2: #556070;
+      --gray-3: #7B8592;
+      --silver-rgb: 74, 81, 88;
+      --ultra: #E8EAEE;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--gray-1);
+      font-family: 'Open Sans', -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+    }
+
+    /* Utility */
+    .utility {
+      background: var(--ultra);
+      border-bottom: 1px solid rgba(var(--silver-rgb), 0.12);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gray-2);
+    }
+    .utility .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .utility a { color: var(--gray-2); text-decoration: none; transition: color .2s; }
+    .utility a:hover { color: var(--gold); }
+    .utility-right { display: flex; gap: 28px; }
+    .utility .gold { color: var(--gold); }
+
+    /* Header */
+    header {
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(var(--silver-rgb), 0.1);
+    }
+    [data-theme="light"] header {
+      background: rgba(245, 246, 248, 0.88);
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 22px;
+      padding-bottom: 22px;
+    }
+    .logo {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: 30px;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      text-transform: uppercase;
+    }
+    .logo .pipe { color: var(--red); font-weight: 300; margin: 0 2px; }
+    .logo small {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.24em;
+      color: var(--gold);
+      margin-left: 16px;
+      border-left: 1px solid rgba(var(--silver-rgb), 0.3);
+      padding-left: 16px;
+      align-self: center;
+      text-transform: uppercase;
+    }
+    nav ul { list-style: none; display: flex; gap: 44px; align-items: center; }
+    nav a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-1);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color .2s;
+    }
+    nav a:hover, nav a.active { color: var(--gold); }
+    .btn-book-header {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--red);
+      padding: 14px 28px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background .2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-book-header:hover { background: var(--red-dark); }
+
+    /* Page hero */
+    .page-hero {
+      position: relative;
+      padding: 120px 0 80px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(170, 0, 0, 0.15), transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(var(--silver-rgb), 0.06), transparent 45%),
+        linear-gradient(180deg, var(--black) 0%, var(--black-3) 100%);
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' numOctaves='2' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .page-hero .container { position: relative; z-index: 2; text-align: center; }
+    .page-kicker {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .page-kicker::before, .page-kicker::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+    .page-hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: clamp(56px, 9vw, 140px);
+      line-height: 0.92;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 36px;
+      letter-spacing: -0.005em;
+    }
+    .page-hero h1 .red { color: var(--red); font-weight: 400; }
+    .page-hero h1 .gold { color: var(--gold); font-weight: 400; }
+    .page-hero .sub {
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--gray-2);
+      max-width: 600px;
+      margin: 0 auto 52px;
+      font-weight: 300;
+    }
+
+    /* Search */
+    .search-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      background: var(--black-3);
+      border: 1px solid rgba(var(--silver-rgb), 0.25);
+      transition: border-color .2s;
+    }
+    .search-wrap:focus-within { border-color: var(--gold); }
+    .search-wrap svg {
+      width: 22px;
+      height: 22px;
+      color: var(--gold);
+      align-self: center;
+      margin-left: 22px;
+      flex-shrink: 0;
+    }
+    .search-wrap input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 22px 20px;
+      color: var(--white);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+    }
+    .search-wrap input::placeholder { color: var(--gray-3); }
+    .search-wrap button {
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 0 36px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .search-wrap button:hover { background: var(--red-dark); }
+
+    /* Map section */
+    .map-section {
+      padding: 100px 0 80px;
+      background: var(--black);
+    }
+    .map-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: var(--black-2);
+      border: 1px solid rgba(var(--silver-rgb), 0.15);
+      padding: 50px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* SVG container clips zoomed map */
+    .us-map-wrap {
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+    .us-map-wrap::before,
+    .us-map-wrap::after {
+      content: '';
+      position: absolute;
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0;
+      transition: opacity 0.6s ease-out;
+    }
+    /* Vignette overlay during zoom */
+    .us-map-wrap::before {
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 20%, rgba(10,10,10,0.55) 75%, rgba(10,10,10,0.85) 100%);
+    }
+    /* Bottom label that appears during zoom */
+    .us-map-wrap::after {
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 22px;
+      background: rgba(10, 10, 10, 0.88);
+      border: 1px solid rgba(var(--silver-rgb), 0.3);
+      color: var(--white);
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      content: attr(data-focus);
+      transform: translateX(-50%) translateY(10px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .us-map-wrap.zooming::before { opacity: 1; }
+    .us-map-wrap.zooming::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .map-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 40px;
+      right: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.4;
+    }
+    .map-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .map-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .map-title::before {
+      content: '◆';
+      color: var(--red);
+      font-size: 10px;
+    }
+    .map-legend {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    .legend-item {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gray-2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 2px rgba(170, 0, 0, 0.2);
+    }
+    .legend-dot.cluster {
+      background: var(--gold);
+      box-shadow: 0 0 0 2px rgba(var(--silver-rgb), 0.2);
+    }
+
+    .us-map {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: block;
+      aspect-ratio: 960/560;
+      transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+    .us-outline {
+      fill: rgba(var(--silver-rgb), 0.025);
+      stroke: rgba(var(--silver-rgb), 0.28);
+      stroke-width: 1.2;
+      stroke-linejoin: round;
+    }
+    .map-grid {
+      stroke: rgba(var(--silver-rgb), 0.05);
+      stroke-width: 0.5;
+    }
+    .marker {
+      fill: var(--red);
+      stroke: rgba(255, 255, 255, 0.4);
+      stroke-width: 1;
+      cursor: pointer;
+      transition: all .25s;
+      filter: drop-shadow(0 0 6px rgba(170, 0, 0, 0.6));
+      pointer-events: all;
+    }
+    /* Touch devices: give markers a big invisible tap halo via fat stroke */
+    @media (pointer: coarse) {
+      .marker {
+        stroke: rgba(255, 255, 255, 0.06);
+        stroke-width: 22;
+        paint-order: stroke fill;
+      }
+      .marker.cluster {
+        stroke: rgba(var(--silver-rgb), 0.08);
+        stroke-width: 24;
+      }
+    }
+    .marker:hover, .marker:focus {
+      fill: var(--gold);
+      r: 10;
+      filter: drop-shadow(0 0 14px rgba(var(--silver-rgb), 0.9));
+    }
+    .marker.cluster {
+      fill: var(--gold);
+      filter: drop-shadow(0 0 8px rgba(var(--silver-rgb), 0.7));
+    }
+    .marker-ring {
+      fill: none;
+      stroke: var(--red);
+      stroke-width: 1;
+      opacity: 0.3;
+      pointer-events: none;
+      animation: pulse 3s infinite;
+    }
+    .marker-ring.cluster-ring {
+      stroke: var(--gold);
+    }
+    @keyframes pulse {
+      0%, 100% { r: 8; opacity: 0.4; }
+      50% { r: 18; opacity: 0; }
+    }
+    .cluster-badge {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      fill: var(--black);
+      pointer-events: none;
+    }
+    .marker-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      fill: var(--gray-2);
+      text-transform: uppercase;
+      font-weight: 500;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .25s;
+    }
+    .marker-group:hover .marker-label { opacity: 1; fill: var(--gold); }
+
+    .metro-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 50px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(var(--silver-rgb), 0.12);
+    }
+    .metro-stat {
+      text-align: center;
+    }
+    .metro-stat strong {
+      font-family: 'Oswald', sans-serif;
+      font-size: 44px;
+      font-weight: 400;
+      color: var(--white);
+      display: block;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .metro-stat strong em { color: var(--red); font-style: normal; }
+    .metro-stat span {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* Locations list */
+    .list-section {
+      padding: 140px 0 160px;
+      background: var(--black-2);
+    }
+    .list-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .list-header .kicker {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .list-header .kicker::before, .list-header .kicker::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+    .list-header h2 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: clamp(48px, 6vw, 96px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .list-header h2 em {
+      color: var(--red);
+      font-style: normal;
+      font-weight: 400;
+    }
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 50px 0 70px;
+      flex-wrap: wrap;
+    }
+    .filter-tab {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gray-2);
+      background: transparent;
+      border: 1px solid rgba(var(--silver-rgb), 0.2);
+      padding: 14px 22px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .2s;
+      font-weight: 500;
+    }
+    .filter-tab:hover, .filter-tab.active {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(var(--silver-rgb), 0.06);
+    }
+
+    .loc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .loc-card {
+      background: var(--black-3);
+      border: 1px solid rgba(var(--silver-rgb), 0.12);
+      padding: 36px 32px;
+      text-decoration: none;
+      transition: all .3s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 280px;
+    }
+    .loc-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+    }
+    .loc-card:hover .loc-arrow { color: var(--gold); transform: translateX(4px); }
+    .loc-card:hover h3 { color: var(--white); }
+    .loc-card.highlight {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(170, 0, 0, 0.2);
+    }
+    .loc-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+    .loc-state {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      padding: 5px 12px;
+      border: 1px solid rgba(var(--silver-rgb), 0.3);
+    }
+    .loc-status {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      font-weight: 500;
+    }
+    .loc-status::before {
+      content: '●';
+      color: #4ade80;
+      margin-right: 6px;
+    }
+    .loc-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--gray-1);
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      margin-bottom: 6px;
+      line-height: 1.1;
+      transition: color .2s;
+    }
+    .loc-city {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .loc-addr {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--gray-2);
+      margin-bottom: 14px;
+      font-weight: 300;
+      flex: 1;
+    }
+    .loc-phone {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+    .loc-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(var(--silver-rgb), 0.12);
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gray-2);
+      font-weight: 500;
+    }
+    .loc-arrow {
+      color: var(--gray-2);
+      font-size: 16px;
+      transition: all .3s;
+    }
+    .loc-card.custom::after {
+      content: 'Custom Site';
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(var(--silver-rgb), 0.1);
+      padding: 4px 8px;
+      border: 1px solid rgba(var(--silver-rgb), 0.3);
+    }
+
+    /* Final CTA strip */
+    .final-strip {
+      padding: 120px 0;
+      background:
+        linear-gradient(135deg, var(--red-dark) 0%, var(--red) 50%, #6b0000 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n4'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n4)'/%3E%3C/svg%3E");
+    }
+    .final-strip .container { position: relative; z-index: 2; }
+    .final-strip h2 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: clamp(42px, 6vw, 88px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 30px;
+    }
+    .final-strip p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 44px;
+    }
+    .btn-white {
+      font-family: 'Oswald', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      padding: 22px 46px;
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      border: 2px solid var(--white);
+    }
+    .btn-white:hover { background: transparent; color: var(--white); }
+
+    /* Footer */
+    footer {
+      background: var(--ultra);
+      padding: 100px 0 40px;
+      border-top: 1px solid rgba(var(--silver-rgb), 0.15);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 80px;
+    }
+    .footer-brand .logo { font-size: 38px; margin-bottom: 28px; }
+    .footer-brand p {
+      font-size: 15px;
+      color: var(--gray-2);
+      max-width: 360px;
+      line-height: 1.7;
+    }
+    .footer-col h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 14px; }
+    .footer-col a {
+      font-family: 'Oswald', sans-serif;
+      color: var(--gray-1);
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--red); }
+    .footer-bottom {
+      border-top: 1px solid rgba(var(--silver-rgb), 0.12);
+      padding-top: 36px;
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+    }
+
+    /* Palette toggle */
+    .palette-toggle {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: rgba(var(--silver-rgb), 0.04);
+      backdrop-filter: blur(14px) saturate(120%);
+      -webkit-backdrop-filter: blur(14px) saturate(120%);
+      border: 1px solid rgba(var(--silver-rgb), 0.3);
+      padding: 0;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      z-index: 1000;
+      font-weight: 500;
+      font-family: 'Oswald', sans-serif;
+      display: flex;
+      align-items: stretch;
+      box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.5);
+    }
+    [data-theme="light"] .palette-toggle {
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 20px 50px -20px rgba(14, 17, 20, 0.2);
+    }
+    .palette-toggle .label {
+      color: var(--gray-2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 18px 16px 22px;
+      border-right: 1px solid rgba(var(--silver-rgb), 0.2);
+    }
+    .palette-toggle .label::before { content: '◆'; color: var(--gold); }
+    .theme-btn {
+      appearance: none;
+      background: transparent;
+      border: 0;
+      color: var(--white);
+      font: inherit;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 16px 22px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color .2s;
+    }
+    .theme-btn:hover { color: var(--gold); }
+    .theme-btn svg { width: 14px; height: 14px; display: block; }
+    [data-theme="light"] .theme-btn .t-dark { display: none; }
+    .theme-btn .t-light { display: none; }
+    [data-theme="light"] .theme-btn .t-light { display: inline-flex; align-items: center; gap: 10px; }
+    .theme-btn .t-dark { display: inline-flex; align-items: center; gap: 10px; }
+
+    @media (max-width: 1100px) {
+      .loc-grid { grid-template-columns: repeat(3, 1fr); }
+      .metro-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .container { padding: 0 24px; }
+      .page-hero { padding: 70px 0 50px; }
+      .map-section { padding: 60px 0 40px; }
+      .map-wrap { padding: 30px 20px; }
+      .list-section { padding: 80px 0 100px; }
+      .loc-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      nav ul { display: none; }
+      .utility .container { flex-direction: column; gap: 8px; }
+      .search-wrap { flex-direction: column; }
+      .search-wrap button { padding: 18px; }
+    }
+    @media (max-width: 600px) {
+      .loc-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="utility">
+    <div class="container">
+      <div><span class="gold">◆</span>&nbsp;&nbsp;22 LOCATIONS · 14 STATES · EST. 2008</div>
+      <div class="utility-right">
+        <a href="locations.html">Find A Salon</a>
+        <a href="#">Gift Cards</a>
+        <a href="#" class="gold">(800) 188-GROOM</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <a href="direction-b-luxe.html" class="logo">
+        18<span class="pipe">|</span>8
+        <small>Fine Men's Salons</small>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="direction-b-luxe.html#services">Services</a></li>
+          <li><a href="direction-b-luxe.html#signature">The Executive</a></li>
+          <li><a href="locations.html" class="active">Locations</a></li>
+          <li><a href="#">Membership</a></li>
+          <li><a href="#" class="btn-book-header">Book Now →</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-kicker">Find A Salon</div>
+      <h1>237 Chairs.<br><span class="red">14</span> States.</h1>
+      <p class="sub">Your local 18|8 is closer than you think. Search by zip, city, or state — or explore the map.</p>
+      <form class="search-wrap" onsubmit="return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.3-4.3"/>
+        </svg>
+        <input type="text" placeholder="Enter zip code, city, or state..." aria-label="Search locations">
+        <button type="submit">Find My Salon</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <div class="container">
+      <div class="map-wrap" id="map">
+        <div class="map-header">
+          <div class="map-title">The 18|8 Network</div>
+          <div class="map-legend">
+            <div class="legend-item"><span class="legend-dot"></span>Single Salon</div>
+            <div class="legend-item"><span class="legend-dot cluster"></span>Metro Cluster</div>
+          </div>
+        </div>
+
+        <div class="us-map-wrap" data-focus="Focusing salon">
+        <svg class="us-map" viewBox="0 0 960 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map of 18|8 Fine Men's Salons locations across the United States">
+
+          <!-- Subtle grid lines -->
+          <g class="map-grid">
+            <line x1="0" y1="140" x2="960" y2="140"/>
+            <line x1="0" y1="280" x2="960" y2="280"/>
+            <line x1="0" y1="420" x2="960" y2="420"/>
+            <line x1="240" y1="0" x2="240" y2="560"/>
+            <line x1="480" y1="0" x2="480" y2="560"/>
+            <line x1="720" y1="0" x2="720" y2="560"/>
+          </g>
+
+          <!-- Continental US outline (simplified) -->
+          <path class="us-outline" d="
+            M 135 135
+            L 165 112
+            L 220 104
+            L 285 96
+            L 340 85
+            L 395 75
+            L 430 85
+            L 455 102
+            L 510 110
+            L 555 128
+            L 595 140
+            L 612 175
+            L 638 170
+            L 668 160
+            L 698 148
+            L 745 142
+            L 810 130
+            L 858 118
+            L 888 140
+            L 895 182
+            L 875 215
+            L 862 258
+            L 850 300
+            L 840 340
+            L 822 380
+            L 805 412
+            L 792 442
+            L 795 475
+            L 808 510
+            L 780 520
+            L 755 498
+            L 735 458
+            L 705 454
+            L 665 465
+            L 620 480
+            L 560 488
+            L 475 500
+            L 432 512
+            L 395 492
+            L 355 470
+            L 305 455
+            L 240 440
+            L 175 418
+            L 145 402
+            L 115 350
+            L 82 275
+            L 65 195
+            L 85 140
+            Z
+          "/>
+
+          <!-- Markers: single-salon metros -->
+          <!-- Redmond, WA -->
+          <g class="marker-group">
+            <circle class="marker-ring" cx="105" cy="130"/>
+            <a href="#loc-redmond"><circle class="marker" cx="105" cy="130" r="7"/></a>
+            <text class="marker-label" x="115" y="125">Redmond</text>
+          </g>
+
+          <!-- Palo Alto, CA -->
+          <g class="marker-group">
+            <circle class="marker-ring" cx="85" cy="280"/>
+            <a href="#loc-palo-alto"><circle class="marker" cx="85" cy="280" r="7"/></a>
+            <text class="marker-label" x="95" y="275">Palo Alto</text>
+          </g>
+
+          <!-- San Diego, CA -->
+          <g class="marker-group">
+            <circle class="marker-ring" cx="155" cy="395"/>
+            <a href="#loc-san-diego"><circle class="marker" cx="155" cy="395" r="7"/></a>
+            <text class="marker-label" x="165" y="390">San Diego</text>
+          </g>
+
+          <!-- Minneapolis Cluster (Maple Grove + Wayzata) -->
+          <g class="marker-group">
+            <circle class="marker-ring cluster-ring" cx="510" cy="130"/>
+            <a href="#loc-maple-grove"><circle class="marker cluster" cx="510" cy="130" r="9"/></a>
+            <text class="cluster-badge" x="510" y="134" text-anchor="middle">2</text>
+            <text class="marker-label" x="522" y="125">Minneapolis ×2</text>
+          </g>
+
+          <!-- Elm Grove, WI -->
+          <g class="marker-group">
+            <circle class="marker-ring" cx="575" cy="165"/>
+            <a href="#loc-elm-grove"><circle class="marker" cx="575" cy="165" r="7"/></a>
+            <text class="marker-label" x="585" y="160">Elm Grove</text>
+          </g>
+
+          <!-- Barrington, IL -->
+          <g class="marker-group">
+            <circle class="marker-ring" cx="590" cy="180"/>
+            <a href="#loc-barrington"><circle class="marker" cx="590" cy="180" r="7"/></a>
+            <text class="marker-label" x="600" y="185">Barrington</text>
+          </g>
+
+          <!-- Carmel, IN -->
+          <g class="marker-group">
+            <circle class="marker-ring" cx="632" cy="210"/>
+            <a href="#loc-carmel"><circle class="marker" cx="632" cy="210" r="7"/></a>
+            <text class="marker-label" x="642" y="208">Carmel</text>
+          </g>
+
+          <!-- Cincinnati (Oakley), OH -->
+          <g class="marker-group">
+            <circle class="marker-ring" cx="668" cy="222"/>
+            <a href="#loc-oakley"><circle class="marker" cx="668" cy="222" r="7"/></a>
+            <text class="marker-label" x="678" y="220">Cincinnati</text>
+          </g>
+
+          <!-- Louisville, KY -->
+          <g class="marker-group">
+            <circle class="marker-ring" cx="642" cy="248"/>
+            <a href="#loc-louisville"><circle class="marker" cx="642" cy="248" r="7"/></a>
+            <text class="marker-label" x="652" y="252">Louisville</text>
+          </g>
+
+          <!-- St. Louis Cluster (Chesterfield + Creve Coeur) -->
+          <g class="marker-group">
+            <circle class="marker-ring cluster-ring" cx="565" cy="240"/>
+            <a href="#loc-chesterfield"><circle class="marker cluster" cx="565" cy="240" r="9"/></a>
+            <text class="cluster-badge" x="565" y="244" text-anchor="middle">2</text>
+            <text class="marker-label" x="577" y="238">St. Louis ×2</text>
+          </g>
+
+          <!-- Atlanta, GA -->
+          <g class="marker-group">
+            <circle class="marker-ring" cx="680" cy="345"/>
+            <a href="#loc-atlanta"><circle class="marker" cx="680" cy="345" r="7"/></a>
+            <text class="marker-label" x="690" y="342">Atlanta</text>
+          </g>
+
+          <!-- Palm Beach Gardens, FL -->
+          <g class="marker-group">
+            <circle class="marker-ring" cx="785" cy="488"/>
+            <a href="#loc-palm-beach"><circle class="marker" cx="785" cy="488" r="7"/></a>
+            <text class="marker-label" x="758" y="506">Palm Beach</text>
+          </g>
+
+          <!-- Dallas-Fort Worth Cluster (PHV + WV + Keller = 3) -->
+          <g class="marker-group">
+            <circle class="marker-ring cluster-ring" cx="455" cy="370"/>
+            <a href="#loc-phv"><circle class="marker cluster" cx="455" cy="370" r="10"/></a>
+            <text class="cluster-badge" x="455" y="374" text-anchor="middle">3</text>
+            <text class="marker-label" x="467" y="368">Dallas-Fort Worth ×3</text>
+          </g>
+
+          <!-- Austin, TX -->
+          <g class="marker-group">
+            <circle class="marker-ring" cx="462" cy="425"/>
+            <a href="#loc-austin"><circle class="marker" cx="462" cy="425" r="7"/></a>
+            <text class="marker-label" x="472" y="428">Austin</text>
+          </g>
+
+          <!-- Houston (The Woodlands), TX -->
+          <g class="marker-group">
+            <circle class="marker-ring" cx="500" cy="432"/>
+            <a href="#loc-woodlands"><circle class="marker" cx="500" cy="432" r="7"/></a>
+            <text class="marker-label" x="510" y="438">Houston</text>
+          </g>
+
+          <!-- Morristown, NJ -->
+          <g class="marker-group">
+            <circle class="marker-ring" cx="830" cy="200"/>
+            <a href="#loc-morristown"><circle class="marker" cx="830" cy="200" r="7"/></a>
+            <text class="marker-label" x="840" y="198">Morristown</text>
+          </g>
+
+          <!-- Boston Cluster (Burlington + Westwood) -->
+          <g class="marker-group">
+            <circle class="marker-ring cluster-ring" cx="870" cy="160"/>
+            <a href="#loc-westwood"><circle class="marker cluster" cx="870" cy="160" r="9"/></a>
+            <text class="cluster-badge" x="870" y="164" text-anchor="middle">2</text>
+            <text class="marker-label" x="820" y="148" text-anchor="end">Boston ×2</text>
+          </g>
+
+        </svg>
+        </div>
+
+        <div class="metro-stats">
+          <div class="metro-stat">
+            <strong>22<em>.</em></strong>
+            <span>Total Salons</span>
+          </div>
+          <div class="metro-stat">
+            <strong>14<em>.</em></strong>
+            <span>States Served</span>
+          </div>
+          <div class="metro-stat">
+            <strong>17<em>.</em></strong>
+            <span>Metro Areas</span>
+          </div>
+          <div class="metro-stat">
+            <strong>5<em>.</em></strong>
+            <span>Multi-Salon Metros</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="list-section">
+    <div class="container">
+      <div class="list-header">
+        <div class="kicker">Every Chair</div>
+        <h2>Every <em>Location.</em></h2>
+      </div>
+
+      <div class="filter-tabs">
+        <a href="#" class="filter-tab active">All 22</a>
+        <a href="#" class="filter-tab">Texas · 5</a>
+        <a href="#" class="filter-tab">California · 2</a>
+        <a href="#" class="filter-tab">Minnesota · 2</a>
+        <a href="#" class="filter-tab">Massachusetts · 2</a>
+        <a href="#" class="filter-tab">Missouri · 2</a>
+        <a href="#" class="filter-tab">East · 6</a>
+        <a href="#" class="filter-tab">Central · 3</a>
+      </div>
+
+      <div class="loc-grid">
+
+        <!-- Dallas Preston Hollow -->
+        <a href="location-sample.html" class="loc-card custom" id="loc-phv">
+          <div class="loc-meta">
+            <span class="loc-state">TX</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Preston Hollow<br>Village</h3>
+          <p class="loc-city">Dallas, Texas</p>
+          <p class="loc-addr">5959 Royal Lane, Suite 512<br>Dallas, TX 75230</p>
+          <p class="loc-phone">(214) 305-2579</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Dallas Uptown -->
+        <a href="#" class="loc-card custom" id="loc-wv">
+          <div class="loc-meta">
+            <span class="loc-state">TX</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Uptown<br>West Village</h3>
+          <p class="loc-city">Dallas, Texas</p>
+          <p class="loc-addr">3699 McKinney Ave, Suite 402<br>Dallas, TX 75204</p>
+          <p class="loc-phone">(214) 305-2079</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Keller -->
+        <a href="#" class="loc-card" id="loc-keller">
+          <div class="loc-meta">
+            <span class="loc-state">TX</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Keller</h3>
+          <p class="loc-city">Fort Worth Metro, Texas</p>
+          <p class="loc-addr">Address coming soon<br>Keller, TX</p>
+          <p class="loc-phone">(817) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Austin -->
+        <a href="#" class="loc-card custom" id="loc-austin">
+          <div class="loc-meta">
+            <span class="loc-state">TX</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>The Domain</h3>
+          <p class="loc-city">Austin, Texas</p>
+          <p class="loc-addr">Address coming soon<br>Austin, TX</p>
+          <p class="loc-phone">(512) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Woodlands / Houston -->
+        <a href="#" class="loc-card custom" id="loc-woodlands">
+          <div class="loc-meta">
+            <span class="loc-state">TX</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>The Woodlands</h3>
+          <p class="loc-city">Houston Metro, Texas</p>
+          <p class="loc-addr">Address coming soon<br>The Woodlands, TX</p>
+          <p class="loc-phone">(281) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Palo Alto -->
+        <a href="#" class="loc-card custom" id="loc-palo-alto">
+          <div class="loc-meta">
+            <span class="loc-state">CA</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Palo Alto</h3>
+          <p class="loc-city">Bay Area, California</p>
+          <p class="loc-addr">Address coming soon<br>Palo Alto, CA</p>
+          <p class="loc-phone">(650) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- San Diego -->
+        <a href="#" class="loc-card custom" id="loc-san-diego">
+          <div class="loc-meta">
+            <span class="loc-state">CA</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>San Diego</h3>
+          <p class="loc-city">4S Ranch, California</p>
+          <p class="loc-addr">Address coming soon<br>San Diego, CA</p>
+          <p class="loc-phone">(858) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Palm Beach Gardens -->
+        <a href="#" class="loc-card custom" id="loc-palm-beach">
+          <div class="loc-meta">
+            <span class="loc-state">FL</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Palm Beach<br>Gardens</h3>
+          <p class="loc-city">South Florida</p>
+          <p class="loc-addr">Address coming soon<br>Palm Beach Gardens, FL</p>
+          <p class="loc-phone">(561) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Atlanta -->
+        <a href="#" class="loc-card custom" id="loc-atlanta">
+          <div class="loc-meta">
+            <span class="loc-state">GA</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Brookhaven</h3>
+          <p class="loc-city">Atlanta, Georgia</p>
+          <p class="loc-addr">Address coming soon<br>Brookhaven, GA</p>
+          <p class="loc-phone">(404) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Barrington -->
+        <a href="#" class="loc-card" id="loc-barrington">
+          <div class="loc-meta">
+            <span class="loc-state">IL</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Barrington</h3>
+          <p class="loc-city">Chicago Metro, Illinois</p>
+          <p class="loc-addr">Address coming soon<br>Barrington, IL</p>
+          <p class="loc-phone">(847) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Carmel IN -->
+        <a href="#" class="loc-card" id="loc-carmel">
+          <div class="loc-meta">
+            <span class="loc-state">IN</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Carmel</h3>
+          <p class="loc-city">Indianapolis Metro, Indiana</p>
+          <p class="loc-addr">Address coming soon<br>Carmel, IN</p>
+          <p class="loc-phone">(317) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Louisville -->
+        <a href="#" class="loc-card" id="loc-louisville">
+          <div class="loc-meta">
+            <span class="loc-state">KY</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Louisville</h3>
+          <p class="loc-city">Louisville, Kentucky</p>
+          <p class="loc-addr">Address coming soon<br>Louisville, KY</p>
+          <p class="loc-phone">(502) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Burlington MA -->
+        <a href="#" class="loc-card" id="loc-burlington">
+          <div class="loc-meta">
+            <span class="loc-state">MA</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Burlington</h3>
+          <p class="loc-city">Boston Metro, Massachusetts</p>
+          <p class="loc-addr">Address coming soon<br>Burlington, MA</p>
+          <p class="loc-phone">(781) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Westwood MA -->
+        <a href="#" class="loc-card custom" id="loc-westwood">
+          <div class="loc-meta">
+            <span class="loc-state">MA</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Westwood</h3>
+          <p class="loc-city">Boston Metro, Massachusetts</p>
+          <p class="loc-addr">Address coming soon<br>Westwood, MA</p>
+          <p class="loc-phone">(781) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Maple Grove -->
+        <a href="#" class="loc-card" id="loc-maple-grove">
+          <div class="loc-meta">
+            <span class="loc-state">MN</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Maple Grove</h3>
+          <p class="loc-city">Minneapolis Metro, Minnesota</p>
+          <p class="loc-addr">Address coming soon<br>Maple Grove, MN</p>
+          <p class="loc-phone">(763) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Wayzata -->
+        <a href="#" class="loc-card" id="loc-wayzata">
+          <div class="loc-meta">
+            <span class="loc-state">MN</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Wayzata</h3>
+          <p class="loc-city">Minneapolis Metro, Minnesota</p>
+          <p class="loc-addr">Address coming soon<br>Wayzata, MN</p>
+          <p class="loc-phone">(952) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Chesterfield MO -->
+        <a href="#" class="loc-card custom" id="loc-chesterfield">
+          <div class="loc-meta">
+            <span class="loc-state">MO</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Chesterfield</h3>
+          <p class="loc-city">St. Louis Metro, Missouri</p>
+          <p class="loc-addr">Address coming soon<br>Chesterfield, MO</p>
+          <p class="loc-phone">(636) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Creve Coeur MO -->
+        <a href="#" class="loc-card custom" id="loc-creve-coeur">
+          <div class="loc-meta">
+            <span class="loc-state">MO</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Creve Coeur</h3>
+          <p class="loc-city">St. Louis Metro, Missouri</p>
+          <p class="loc-addr">Address coming soon<br>Creve Coeur, MO</p>
+          <p class="loc-phone">(314) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Morristown NJ -->
+        <a href="#" class="loc-card" id="loc-morristown">
+          <div class="loc-meta">
+            <span class="loc-state">NJ</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Morristown</h3>
+          <p class="loc-city">Northern New Jersey</p>
+          <p class="loc-addr">Address coming soon<br>Morristown, NJ</p>
+          <p class="loc-phone">(973) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Oakley OH -->
+        <a href="#" class="loc-card" id="loc-oakley">
+          <div class="loc-meta">
+            <span class="loc-state">OH</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Oakley</h3>
+          <p class="loc-city">Cincinnati, Ohio</p>
+          <p class="loc-addr">Address coming soon<br>Cincinnati, OH</p>
+          <p class="loc-phone">(513) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Redmond WA -->
+        <a href="#" class="loc-card" id="loc-redmond">
+          <div class="loc-meta">
+            <span class="loc-state">WA</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Redmond</h3>
+          <p class="loc-city">Seattle Metro, Washington</p>
+          <p class="loc-addr">Address coming soon<br>Redmond, WA</p>
+          <p class="loc-phone">(425) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Elm Grove WI -->
+        <a href="#" class="loc-card" id="loc-elm-grove">
+          <div class="loc-meta">
+            <span class="loc-state">WI</span>
+            <span class="loc-status">Now Open</span>
+          </div>
+          <h3>Elm Grove</h3>
+          <p class="loc-city">Milwaukee Metro, Wisconsin</p>
+          <p class="loc-addr">Address coming soon<br>Elm Grove, WI</p>
+          <p class="loc-phone">(262) 000-0000</p>
+          <div class="loc-card-footer">
+            <span>View Salon</span>
+            <span class="loc-arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="final-strip">
+    <div class="container">
+      <h2>Found Your Salon?</h2>
+      <p>Book your sit-down in under a minute.</p>
+      <a href="#" class="btn-white">Book Now →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="direction-b-luxe.html" class="logo">
+            18<span class="pipe">|</span>8
+            <small>Fine Men's Salons</small>
+          </a>
+          <p>A classic barbershop reinvented for the modern man. Precision grooming across 14 states.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="direction-b-luxe.html#services">Haircuts</a></li>
+            <li><a href="direction-b-luxe.html#services">Shaves</a></li>
+            <li><a href="direction-b-luxe.html#services">Coloring</a></li>
+            <li><a href="direction-b-luxe.html#services">Facials</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="#">Membership</a></li>
+            <li><a href="#">Gift Cards</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">(800) 188-GROOM</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 18|8 Fine Men's Salons</div>
+        <div>Draft — Locations Page</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="palette-toggle" role="group" aria-label="Theme toggle">
+    <span class="label">Theme</span>
+    <button type="button" class="theme-btn" onclick="toggleTheme()" aria-label="Toggle light or dark theme">
+      <span class="t-dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        Switch to Light
+      </span>
+      <span class="t-light">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        Switch to Dark
+      </span>
+    </button>
+  </div>
+
+  <script>
+    function toggleTheme(){
+      var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      var next = cur === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('ee-theme', next); } catch(e) {}
+    }
+
+    // Highlight a location card (used by hashchange AND by map zoom)
+    function highlightCard(target) {
+      if (!target || !target.classList.contains('loc-card')) return;
+      document.querySelectorAll('.loc-card.highlight').forEach(c => c.classList.remove('highlight'));
+      target.classList.add('highlight');
+      setTimeout(() => target.classList.remove('highlight'), 2800);
+    }
+
+    // ===== Map swoop-zoom interaction =====
+    const svg = document.querySelector('.us-map');
+    const mapWrap = document.querySelector('.us-map-wrap');
+    const VIEWBOX_W = 960;
+    const VIEWBOX_H = 560;
+    let zooming = false;
+
+    function doMapZoom(cx, cy, targetId, labelText) {
+      if (zooming) return;
+      zooming = true;
+
+      // Set origin to the clicked marker, then scale up
+      const originX = (cx / VIEWBOX_W) * 100;
+      const originY = (cy / VIEWBOX_H) * 100;
+      svg.style.transformOrigin = `${originX}% ${originY}%`;
+
+      // Update the overlay label
+      mapWrap.setAttribute('data-focus', labelText || 'Focusing salon');
+      mapWrap.classList.add('zooming');
+
+      // Swoop in (a bit less aggressive on mobile so it stays readable)
+      const isMobile = window.matchMedia('(max-width: 700px)').matches;
+      svg.style.transform = isMobile ? 'scale(3.8)' : 'scale(5.5)';
+
+      // Hold, then zoom back out
+      setTimeout(() => {
+        svg.style.transform = 'scale(1)';
+      }, 1100);
+
+      // Hide overlay as zoom-out finishes
+      setTimeout(() => {
+        mapWrap.classList.remove('zooming');
+      }, 1800);
+
+      // Scroll to card + highlight slightly before zoom-out completes
+      setTimeout(() => {
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          highlightCard(target);
+        }
+        zooming = false;
+      }, 1900);
+    }
+
+    // Event delegation: catch any marker click
+    if (svg) {
+      svg.addEventListener('click', (e) => {
+        const marker = e.target.closest('.marker');
+        if (!marker) return;
+        const anchor = marker.closest('a');
+        if (!anchor) return;
+        e.preventDefault();
+
+        const cx = parseFloat(marker.getAttribute('cx'));
+        const cy = parseFloat(marker.getAttribute('cy'));
+        const hrefAttr = anchor.getAttribute('href');
+        const targetId = hrefAttr ? hrefAttr.replace('#', '') : null;
+
+        // Pull the label text from the sibling marker-label text element
+        const group = marker.closest('.marker-group');
+        const labelEl = group ? group.querySelector('.marker-label') : null;
+        const labelText = labelEl ? labelEl.textContent : 'Focusing salon';
+
+        if (targetId) doMapZoom(cx, cy, targetId, labelText);
+      });
+    }
+
+    // Handle direct hash links (from address bar or external)
+    function handleHashArrival() {
+      const id = window.location.hash;
+      if (!id) return;
+      const target = document.querySelector(id);
+      highlightCard(target);
+    }
+    window.addEventListener('hashchange', handleHashArrival);
+    window.addEventListener('load', handleHashArrival);
+
+    // Basic filter (visual only for demo)
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
