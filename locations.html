@@ -159,7 +159,7 @@
     /* Page hero */
     .page-hero {
       position: relative;
-      padding: 120px 0 80px;
+      padding: 80px 0 40px;
       overflow: hidden;
       background:
         radial-gradient(ellipse at 20% 30%, rgba(170, 0, 0, 0.15), transparent 50%),
@@ -260,9 +260,36 @@
     }
     .search-wrap button:hover { background: var(--red-dark); }
 
+    /* Search (moved below the map) */
+    .search-section {
+      padding: 70px 0 90px;
+      background: var(--black);
+      text-align: center;
+      border-top: 1px solid rgba(var(--silver-rgb), 0.08);
+    }
+    .search-kicker {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .search-kicker::before, .search-kicker::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
     /* Map section */
     .map-section {
-      padding: 100px 0 80px;
+      padding: 30px 0 50px;
       background: var(--black);
     }
     .map-wrap {
@@ -898,15 +925,7 @@
     <div class="container">
       <div class="page-kicker">Find A Salon</div>
       <h1>237 Chairs.<br><span class="red">14</span> States.</h1>
-      <p class="sub">Your local 18|8 is closer than you think. Search by zip, city, or state — or explore the map.</p>
-      <form class="search-wrap" onsubmit="return false;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"/>
-          <path d="m21 21-4.3-4.3"/>
-        </svg>
-        <input type="text" placeholder="Enter zip code, city, or state..." aria-label="Search locations">
-        <button type="submit">Find My Salon</button>
-      </form>
+      <p class="sub">Tap a dot on the map to zoom in — or search by zip, city, or state.</p>
     </div>
   </section>
 
@@ -1133,6 +1152,20 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="search-section">
+    <div class="container">
+      <div class="search-kicker">Or Search Directly</div>
+      <form class="search-wrap" onsubmit="return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.3-4.3"/>
+        </svg>
+        <input type="text" placeholder="Enter zip code, city, or state..." aria-label="Search locations">
+        <button type="submit">Find My Salon</button>
+      </form>
     </div>
   </section>
 
