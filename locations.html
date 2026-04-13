@@ -1640,38 +1640,38 @@
       if (zooming) return;
       zooming = true;
 
-      // Set origin to the clicked marker, then scale up
       const originX = (cx / VIEWBOX_W) * 100;
       const originY = (cy / VIEWBOX_H) * 100;
       svg.style.transformOrigin = `${originX}% ${originY}%`;
 
-      // Update the overlay label
       mapWrap.setAttribute('data-focus', labelText || 'Focusing salon');
       mapWrap.classList.add('zooming');
 
-      // Swoop in (a bit less aggressive on mobile so it stays readable)
       const isMobile = window.matchMedia('(max-width: 700px)').matches;
-      svg.style.transform = isMobile ? 'scale(3.8)' : 'scale(5.5)';
+      const zoomLevel = isMobile ? 'scale(3.8)' : 'scale(5.5)';
 
-      // Hold, then zoom back out
-      setTimeout(() => {
-        svg.style.transform = 'scale(1)';
-      }, 1100);
+      // Phase 1: Zoom IN on the dot
+      svg.style.transform = zoomLevel;
 
-      // Hide overlay as zoom-out finishes
-      setTimeout(() => {
-        mapWrap.classList.remove('zooming');
-      }, 1800);
-
-      // Scroll to card + highlight slightly before zoom-out completes
+      // Phase 2: Stay zoomed, scroll to the card
       setTimeout(() => {
         const target = document.getElementById(targetId);
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'center' });
           highlightCard(target);
         }
+      }, 1200);
+
+      // Phase 3: Zoom OUT once scroll has reached the card
+      setTimeout(() => {
+        svg.style.transform = 'scale(1)';
+      }, 3400);
+
+      // Phase 4: Clean up
+      setTimeout(() => {
+        mapWrap.classList.remove('zooming');
         zooming = false;
-      }, 1900);
+      }, 4400);
     }
 
     // Event delegation: catch any marker click
