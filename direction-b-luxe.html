@@ -302,38 +302,12 @@
     .hero-card {
       position: relative;
       aspect-ratio: 4/5;
-      background: var(--ultra);
-      border: 2px solid rgba(var(--silver-rgb), 0.32);
-      padding: 40px;
+      background: var(--card-grad-radial);
+      border: 2px solid rgba(var(--silver-rgb), 0.25);
       overflow: hidden;
-      perspective: 1400px;
       box-shadow:
-        inset 0 0 0 1px rgba(0, 0, 0, 0.5),
-        inset 0 0 60px rgba(0, 0, 0, 0.5),
-        0 40px 90px -40px rgba(0, 0, 0, 0.8);
-    }
-    .book-spine {
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 24px;
-      background: linear-gradient(90deg,
-        rgba(0, 0, 0, 0.7) 0%,
-        rgba(15, 15, 18, 0.4) 55%,
-        transparent 100%);
-      border-right: 1px solid rgba(var(--silver-rgb), 0.1);
-      z-index: 5;
-      pointer-events: none;
-    }
-    .book-spine::before {
-      content: '';
-      position: absolute;
-      top: 20%;
-      bottom: 20%;
-      left: 8px;
-      width: 1px;
-      background: linear-gradient(180deg, transparent, rgba(var(--silver-rgb), 0.2), transparent);
+        inset 0 0 0 1px rgba(0, 0, 0, 0.4),
+        0 40px 90px -40px rgba(0, 0, 0, 0.7);
     }
     .hero-card::before {
       content: '';
@@ -385,37 +359,26 @@
       text-align: center;
     }
 
-    /* ===== Book-turning animation ===== */
-    .book-stage {
-      position: absolute;
-      inset: 40px;
-      z-index: 2;
-    }
-    .book-page {
+    /* ===== Slide carousel animation ===== */
+    .slide-track {
       position: absolute;
       inset: 0;
       display: flex;
+      width: 700%;
+      animation: slideCarousel 36s infinite;
+      will-change: transform;
+    }
+    .slide {
+      flex: 0 0 calc(100% / 7);
+      display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transform-origin: left center;
-      will-change: transform, opacity;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      transform: translateZ(0);
-      /* Solid page background so stacked pages don't show through */
+      padding: 40px;
       background: var(--card-grad-radial);
-      border-left: 1px solid rgba(var(--silver-rgb), 0.12);
+      border-right: 1px solid rgba(var(--silver-rgb), 0.08);
+      position: relative;
     }
-    /* Page grain texture overlay */
-    .book-page::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n5'%3E%3CfeTurbulence baseFrequency='0.72' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.8 0 0 0 0 0.8 0 0 0 0 0.85 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n5)'/%3E%3C/svg%3E");
-      pointer-events: none;
-    }
-    /* Red top-right bar on each page */
-    .book-page::after {
+    .slide::after {
       content: '';
       position: absolute;
       top: 0;
@@ -423,58 +386,16 @@
       width: 120px;
       height: 2px;
       background: var(--red);
-      z-index: 2;
     }
-    .book-page > * { position: relative; z-index: 1; }
 
-    /* Stacked z-index so next page is revealed as the current rotates off its hinge */
-    .book-page.p1 { z-index: 60; animation: flipP1 36s infinite ease-in-out; }
-    .book-page.p2 { z-index: 50; animation: flipP2 36s infinite ease-in-out; }
-    .book-page.p3 { z-index: 40; animation: flipP3 36s infinite ease-in-out; }
-    .book-page.p4 { z-index: 30; animation: flipP4 36s infinite ease-in-out; }
-    .book-page.p5 { z-index: 20; animation: flipP5 36s infinite ease-in-out; }
-    .book-page.p6 { z-index: 10; animation: flipP6 36s infinite ease-in-out; }
-
-    /* Smooth page flip — only rotateY + opacity, no filter/skew overhead */
-    @keyframes flipP1 {
-      0%, 10.67% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
-      13.67% { transform: translateZ(0) rotateY(-50deg); opacity: 0.8; }
-      16.67% { transform: translateZ(0) rotateY(-90deg); opacity: 0; }
-      99.99% { transform: translateZ(0) rotateY(-90deg); opacity: 0; }
-      100% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
-    }
-    @keyframes flipP2 {
-      0%, 27.33% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
-      30.33% { transform: translateZ(0) rotateY(-50deg); opacity: 0.8; }
-      33.33% { transform: translateZ(0) rotateY(-90deg); opacity: 0; }
-      99.99% { transform: translateZ(0) rotateY(-90deg); opacity: 0; }
-      100% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
-    }
-    @keyframes flipP3 {
-      0%, 44% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
-      47% { transform: translateZ(0) rotateY(-50deg); opacity: 0.8; }
-      50% { transform: translateZ(0) rotateY(-90deg); opacity: 0; }
-      99.99% { transform: translateZ(0) rotateY(-90deg); opacity: 0; }
-      100% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
-    }
-    @keyframes flipP4 {
-      0%, 60.67% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
-      63.67% { transform: translateZ(0) rotateY(-50deg); opacity: 0.8; }
-      66.67% { transform: translateZ(0) rotateY(-90deg); opacity: 0; }
-      99.99% { transform: translateZ(0) rotateY(-90deg); opacity: 0; }
-      100% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
-    }
-    @keyframes flipP5 {
-      0%, 77.33% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
-      80.33% { transform: translateZ(0) rotateY(-50deg); opacity: 0.8; }
-      83.33% { transform: translateZ(0) rotateY(-90deg); opacity: 0; }
-      99.99% { transform: translateZ(0) rotateY(-90deg); opacity: 0; }
-      100% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
-    }
-    @keyframes flipP6 {
-      0%, 94% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
-      97% { transform: translateZ(0) rotateY(-50deg); opacity: 0.8; }
-      100% { transform: translateZ(0) rotateY(-90deg); opacity: 0; }
+    @keyframes slideCarousel {
+      0%, 12.5%      { transform: translateX(0); }
+      16.67%, 29.17% { transform: translateX(calc(-100% / 7)); }
+      33.33%, 45.83% { transform: translateX(calc(-200% / 7)); }
+      50%, 62.5%     { transform: translateX(calc(-300% / 7)); }
+      66.67%, 79.17% { transform: translateX(calc(-400% / 7)); }
+      83.33%, 95.83% { transform: translateX(calc(-500% / 7)); }
+      100%           { transform: translateX(calc(-600% / 7)); }
     }
 
     .book-icon {
@@ -509,7 +430,7 @@
       filter: drop-shadow(0 0 20px rgba(var(--silver-rgb), 0.3));
     }
 
-    .book-dots {
+    .slide-dots {
       position: absolute;
       bottom: 16px;
       left: 50%;
@@ -518,7 +439,7 @@
       gap: 10px;
       z-index: 100;
     }
-    .book-dot {
+    .slide-dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
@@ -559,12 +480,6 @@
       0%, 83.33% { background: rgba(var(--silver-rgb), 0.18); transform: scale(1); box-shadow: none; }
       85.33%, 98% { background: var(--silver); transform: scale(1.6); box-shadow: 0 0 12px rgba(var(--silver-rgb), 0.55); }
       100% { background: rgba(var(--silver-rgb), 0.18); transform: scale(1); box-shadow: none; }
-    }
-
-    @media (max-width: 900px) {
-      .book-icon { width: 100px; height: 100px; }
-      .book-bignum { font-size: 96px; }
-      .book-stars { font-size: 28px; }
     }
     .hero-card-quote small {
       display: block;
@@ -1423,9 +1338,8 @@
           </div>
         </div>
         <div class="hero-card">
-          <div class="book-spine"></div>
-          <div class="book-stage">
-            <div class="book-page p1">
+          <div class="slide-track">
+            <div class="slide">
               <div class="hero-card-label">No. 001 · Est. 2008</div>
               <div class="hero-card-crest">
                 <img src="assets/stag-logo-dark.png" alt="18|8 Crest">
@@ -1435,7 +1349,7 @@
                 <small>— The 18|8 Credo</small>
               </div>
             </div>
-            <div class="book-page p2">
+            <div class="slide">
               <div class="hero-card-label">No. 002 · The Pledge</div>
               <div class="hero-card-crest">
                 <svg class="book-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
@@ -1450,7 +1364,7 @@
                 <small>— The House Pledge</small>
               </div>
             </div>
-            <div class="book-page p3">
+            <div class="slide">
               <div class="hero-card-label">No. 003 · A Word From A Regular</div>
               <div class="hero-card-crest">
                 <div class="book-stars">★ ★ ★ ★ ★</div>
@@ -1460,7 +1374,7 @@
                 <small>— S. Mvrk · Dallas</small>
               </div>
             </div>
-            <div class="book-page p4">
+            <div class="slide">
               <div class="hero-card-label">No. 004 · The Network</div>
               <div class="hero-card-crest">
                 <div class="book-bignum">22<span class="pipe">|</span>14</div>
@@ -1470,7 +1384,7 @@
                 <small>— The Network</small>
               </div>
             </div>
-            <div class="book-page p5">
+            <div class="slide">
               <div class="hero-card-label">No. 005 · The Motto</div>
               <div class="hero-card-crest">
                 <svg class="book-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
@@ -1486,7 +1400,7 @@
                 <small>— The House Motto</small>
               </div>
             </div>
-            <div class="book-page p6">
+            <div class="slide">
               <div class="hero-card-label">No. 006 · The Invitation</div>
               <div class="hero-card-crest">
                 <img src="assets/stag-logo-dark.png" alt="18|8 Crest">
@@ -1496,14 +1410,25 @@
                 <small>— Find A Salon →</small>
               </div>
             </div>
+            <!-- Duplicate of slide 1 for seamless loop -->
+            <div class="slide">
+              <div class="hero-card-label">No. 001 · Est. 2008</div>
+              <div class="hero-card-crest">
+                <img src="assets/stag-logo-dark.png" alt="18|8 Crest">
+              </div>
+              <div class="hero-card-quote">
+                "The Barbershop Reinvented For Modern Men."
+                <small>— The 18|8 Credo</small>
+              </div>
+            </div>
           </div>
-          <div class="book-dots">
-            <span class="book-dot bd1"></span>
-            <span class="book-dot bd2"></span>
-            <span class="book-dot bd3"></span>
-            <span class="book-dot bd4"></span>
-            <span class="book-dot bd5"></span>
-            <span class="book-dot bd6"></span>
+          <div class="slide-dots">
+            <span class="slide-dot sd1"></span>
+            <span class="slide-dot sd2"></span>
+            <span class="slide-dot sd3"></span>
+            <span class="slide-dot sd4"></span>
+            <span class="slide-dot sd5"></span>
+            <span class="slide-dot sd6"></span>
           </div>
         </div>
       </div>
